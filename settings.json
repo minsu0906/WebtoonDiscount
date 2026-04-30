@@ -1,0 +1,36 @@
+{
+  "notes": [
+    "이 파일은 자주 바꾸는 설정용입니다.",
+    "웹툰 목록, 알림 방식, 이메일 수신자, 카카오 친구 이름/UUID는 여기서 수정하세요.",
+    "비밀번호나 토큰 같은 민감정보는 환경변수 또는 GitHub Secrets에 두는 것을 권장합니다."
+  ],
+  "webtoons": [
+    {
+      "title": "베드 파트너"
+    },
+    {
+      "url": "https://www.lezhin.com/ko/comic/bed_partner"
+    }
+  ],
+  "notification": {
+    "provider": "email",
+    "email": {
+      "sender": "minsu0906@gmail.com",
+      "recipients": [
+        "minsu0906@gmail.com"
+      ],
+      "smtp_host": "smtp.gmail.com",
+      "smtp_port": 587
+    },
+    "kakao_friends": {
+      "names": [
+        "e.alstn"
+      ],
+      "uuids": []
+    }
+  },
+  "runtime": {
+    "state_path": "state.json",
+    "request_timeout_seconds": 20
+  }
+}
