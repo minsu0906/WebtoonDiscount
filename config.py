@@ -272,6 +272,8 @@ def load_settings() -> dict[str, Any]:
             runtime_config.get("request_timeout_seconds"),
             DEFAULT_REQUEST_TIMEOUT_SECONDS,
         ),
+        "lezhin_email": _pick_string_setting("LEZHIN_EMAIL", None) or None,
+        "lezhin_password": _pick_string_setting("LEZHIN_PASSWORD", None) or None,
         "request_headers": {
             "User-Agent": os.getenv(
                 "LEZHIN_USER_AGENT",

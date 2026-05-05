@@ -11,6 +11,7 @@ import requests
 
 from checker import check_webtoon
 from config import load_settings
+from lezhin_auth import apply_lezhin_session
 from notifier import (
     build_email_body,
     build_email_subject,
@@ -263,6 +264,17 @@ def main() -> int:
 
     session = requests.Session()
     session.headers.update(settings["request_headers"])
+
+    try:
+        apply_lezhin_session(
+            session=session,
+            state=state,
+            email=settings.get("lezhin_email"),
+            password=settings.get("lezhin_password"),
+            timeout_seconds=settings["request_timeout_seconds"],
+        )
+    except Exception as error:
+        logger.warning("레진 로그인 실패 (비로그인으로 계속 진행): %s", error)
 
     try:
         for target in settings["webtoons"]:
